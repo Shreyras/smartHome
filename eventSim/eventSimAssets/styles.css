@@ -1,0 +1,25 @@
+.container-fluid {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.img-col {
+  background-color: #1d3557;
+}
+
+.btn-col {
+  background-color: #457b9d;
+}
+
+.info-col {
+  background-color: #a8dadc;
+  padding: 10% 5%;
+}
+.btn {
+  margin: 30%;
+  background-color: #FFFFFF;
+}
+
+.doorbellImg {
+  margin: 10% 22%;
+}

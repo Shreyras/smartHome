@@ -1,0 +1,58 @@
+<html>
+
+<head>
+  <title>Living Room</title>
+</head>
+
+<body>
+  <script src="https://web.janusvr.com/janusweb.js"></script>
+  <janus-viewer>
+    <FireBoxRoom>
+      <Assets>
+        <AssetScript src="script.js"></AssetScript>
+        #Walls roof and floor
+        <AssetObject id="Main" src="wallsFloorAndRoof.dae" />
+
+        #Sofa set
+        <AssetObject id="sofa" src="SofaSet.dae" />
+
+        #Wall screens
+        <AssetObject id="mainScreen" src="largeScreen_single.obj" />
+        <AssetObject id="smallScreen" src="smallScreen_single.obj" />
+        <AssetObject id="sceneryScreen" src="sceneryScreen_large.obj" />
+        <AssetObject id="notifScreen" src="notifScreen.obj" />
+
+        #Doorbell sound
+        <AssetSound id="doorbell" src="doorbell_sound.mp3" />
+
+        #Wall Photos
+        <AssetImage id="scenery" src="nature.jpg" />
+
+        #Doorbell Notification
+        <AssetImage id="notif" src="doorbellNotif.jpg" />
+
+        #Screen Videos
+        <AssetVideo id="play" src="skiing.mp4" auto_play="true" loop="true" />
+        <AssetVideo id="camera" src="front_cam.mp4" auto_play="true" loop="true" />
+      </Assets>
+
+      #This is the Room
+      <Room visible="false" pos="-4.6 0 4.6" xdir="-0.707109 0 -0.707105" ydir="0 1 0" zdir="0.707105 0 -0.707109" default_sounds="false">
+        #This is the structure
+        <Object id="Main" cull_face="none" lighting="false" collision_id="Main" />
+
+        #This is the sofa set, Experiment by changing the asset object above with another support mesh format (.obj, .dae, .fbx, and .3ds supported)
+        <Object id="sofa" cull_face="none" lighting="false" rotation="0 180 0" scale="1.5 1.5 1.5" pos="0 0 2" />
+
+        #This is the wall screens
+        #To change the media that is displayed, substitute image_id/video_id part for the other supported media formats in the asset section above.
+        <Object js_id="0" id="mainScreen" lighting="false" video_id="play" />
+        <Object js_id="1" id="smallScreen" lighting="false" video_id="camera" visible="false" />
+        <Object js_id="2" id="sceneryScreen" lighting="false" image_id="scenery" />
+        <Object js_id="3" id="notifScreen" lighting="false" image_id="notif" visible="false" />
+      </Room>
+    </FireBoxRoom>
+  </janus-viewer>
+</body>
+
+</html>
