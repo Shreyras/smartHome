@@ -1,34 +1,47 @@
-/* var number=0;
-
-setInterval(change, 10000);
-function change(){
-  if(number===0){
-    room.objects["3"].visible="false";
-  }
-  else{
-    room.objects["3"].visible="true";
-  }
-
-  number=(number+1)%2;
-}
-*/
-
 window.localStorage.clear();
 window.localStorage.setItem('doorbellStatus', '0');
 let value = window.localStorage.getItem('doorbellStatus');
 
+let tv = "0";
+let frontCamVideo = "1";
+let notification = "3";
+let yesButton = "4";
+let noButton = "5";
+let resetTime = 30000;
+
+function yesButtonClicked(){
+    room.objects[tv].video_id= "paused";
+    room.objects[notification].visible="false";
+    room.objects[yesButton].visible="false";
+    room.objects[noButton].visible="false";
+}
+
+function noButtonClicked(){
+    room.objects[notification].visible="false";
+    room.objects[yesButton].visible="false";
+    room.objects[noButton].visible="false";
+    room.objects[frontCamVideo].visible="false";
+}
+
 function restoreToNormal(){
-  room.objects["1"].visible="false";
-  room.objects["3"].visible="false";
+  room.objects[tv].video_id="play";
+  room.objects[frontCamVideo].visible="false";
+  room.objects[notification].visible="false";
+  room.objects[yesButton].visible="false";
+  room.objects[noButton].visible="false";
   check();
 }
 
 function doorbellEvent(){
   window.localStorage.setItem('doorbellStatus', '0');
+
   room.playSound("doorbell");
-  room.objects["1"].visible="true";
-  room.objects["3"].visible="true";
-  setTimeout(restoreToNormal,10000);
+  room.objects[frontCamVideo].visible="true";
+  room.objects[notification].visible="true";
+  room.objects[yesButton].visible="true";
+  room.objects[noButton].visible="true";
+
+  setTimeout(restoreToNormal, resetTime);
 }
 
 function check(){
