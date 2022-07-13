@@ -1,15 +1,17 @@
 <html>
-
 <head>
   <title>Living Room</title>
 </head>
-
 <body>
   <script src="https://web.janusvr.com/janusweb.js"></script>
+
+  #All Janus markup is contained inside the janus-viewer tag
   <janus-viewer>
     <FireBoxRoom>
       <Assets>
+        #this is the custom made javascript to interact with objects in room on the occurence of an event
         <AssetScript src="script.js"></AssetScript>
+
         #Walls roof and floor
         <AssetObject id="Main" src="wallsFloorAndRoof.dae" />
 
@@ -20,7 +22,11 @@
         <AssetObject id="mainScreen" src="largeScreen_single.obj" />
         <AssetObject id="smallScreen" src="smallScreen_single.obj" />
         <AssetObject id="sceneryScreen" src="sceneryScreen_large.obj" />
+
+        #Notification screens
         <AssetObject id="notifScreen" src="notifScreen.obj" />
+        <AssetObject id="yesButton" src="yesButton.obj" />
+        <AssetObject id="noButton" src="noButton.obj" />
 
         #Doorbell sound
         <AssetSound id="doorbell" src="doorbell_sound.mp3" />
@@ -28,28 +34,35 @@
         #Wall Photos
         <AssetImage id="scenery" src="nature.jpg" />
 
-        #Doorbell Notification
+        #Doorbell Notification images
         <AssetImage id="notif" src="doorbellNotif.jpg" />
+        <AssetImage id="yesImage" src="yesImage.jpg" />
+        <AssetImage id="noImage" src="noImage.jpg" />
 
         #Screen Videos
         <AssetVideo id="play" src="skiing.mp4" auto_play="true" loop="true" />
+        <AssetVideo id="paused" src="skiing_paused.mp4" auto_play="true" loop="true" />
         <AssetVideo id="camera" src="front_cam.mp4" auto_play="true" loop="true" />
       </Assets>
 
       #This is the Room
-      <Room visible="false" pos="-4.6 0 4.6" xdir="-0.707109 0 -0.707105" ydir="0 1 0" zdir="0.707105 0 -0.707109" default_sounds="false">
+      <Room visible="true" pos="-4.6 0 4.6" xdir="-0.707109 0 -0.707105" ydir="0 1 0" zdir="0.707105 0 -0.707109" default_sounds="true">
         #This is the structure
         <Object id="Main" cull_face="none" lighting="false" collision_id="Main" />
 
         #This is the sofa set, Experiment by changing the asset object above with another support mesh format (.obj, .dae, .fbx, and .3ds supported)
-        <Object id="sofa" cull_face="none" lighting="false" rotation="0 180 0" scale="1.5 1.5 1.5" pos="0 0 2" />
+        <Object id="sofa" cull_face="none" lighting="true" rotation="0 180 0" scale="1.5 1.5 1.5" pos="0 0 2" />
 
         #This is the wall screens
         #To change the media that is displayed, substitute image_id/video_id part for the other supported media formats in the asset section above.
         <Object js_id="0" id="mainScreen" lighting="false" video_id="play" />
         <Object js_id="1" id="smallScreen" lighting="false" video_id="camera" visible="false" />
         <Object js_id="2" id="sceneryScreen" lighting="false" image_id="scenery" />
+
+        #These are the notifications
         <Object js_id="3" id="notifScreen" lighting="false" image_id="notif" visible="false" />
+        <Object js_id="4" id="yesButton" lighting="false" image_id="yesImage" onclick="yesButtonClicked()" visible="false" collision_id="yesButton"/>
+        <Object js_id="5" id="noButton" lighting="false" image_id="noImage" onclick="noButtonClicked()" visible="false" collision_id="noButton" />
       </Room>
     </FireBoxRoom>
   </janus-viewer>
