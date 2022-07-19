@@ -23,7 +23,7 @@
         <AssetObject id="smallScreen" src="smallScreen_single.obj" />
         <AssetObject id="sceneryScreen" src="sceneryScreen_large.obj" />
 
-        #Notification screens
+        #Doorbell Notification screens
         <AssetObject id="notifScreen" src="notifScreen.obj" />
         <AssetObject id="yesButton" src="yesButton.obj" />
         <AssetObject id="noButton" src="noButton.obj" />
@@ -43,6 +43,16 @@
         <AssetVideo id="play" src="skiing.mp4" auto_play="true" loop="true" />
         <AssetVideo id="paused" src="skiing_paused.mp4" auto_play="true" loop="true" />
         <AssetVideo id="camera" src="front_cam.mp4" auto_play="true" loop="true" />
+
+
+
+        #Taxi notification screen
+        <AssetObject id="taxiScreen" src="taxiScreen.obj" />
+
+        #Taxi notification images
+        <AssetImage id="taxiNotif" src="taxiNotif.jpg" />
+        <AssetImage id="speedInc" src="speedIncrease.jpg" />
+
       </Assets>
 
       #This is the Room
@@ -55,14 +65,17 @@
 
         #This is the wall screens
         #To change the media that is displayed, substitute image_id/video_id part for the other supported media formats in the asset section above.
-        <Object js_id="0" id="mainScreen" lighting="false" video_id="play" />
-        <Object js_id="1" id="smallScreen" lighting="false" video_id="camera" visible="false" />
-        <Object js_id="2" id="sceneryScreen" lighting="false" image_id="scenery" />
+        <Object js_id="tv" id="mainScreen" lighting="false" video_id="play" />
+        <Object js_id="popUp" id="smallScreen" lighting="false" video_id="camera" visible="false" />
+        <Object js_id="scenery" id="sceneryScreen" lighting="false" image_id="scenery" />
 
-        #These are the notifications
-        <Object js_id="3" id="notifScreen" lighting="false" image_id="notif" visible="false" />
-        <Object js_id="4" id="yesButton" lighting="false" image_id="yesImage" onclick="yesButtonClicked()" visible="false" collision_id="yesButton"/>
-        <Object js_id="5" id="noButton" lighting="false" image_id="noImage" onclick="noButtonClicked()" visible="false" collision_id="noButton" />
+        #These are the doorbell notifications
+        <Object js_id="bellNotification" id="notifScreen" lighting="false" image_id="notif" visible="false" />
+        <Object js_id="yesButton" id="yesButton" lighting="false" image_id="yesImage" onclick="yesButtonClicked()" visible="false" collision_id="yesButton"/>
+        <Object js_id="noButton" id="noButton" lighting="false" image_id="noImage" onclick="noButtonClicked()" visible="false" collision_id="noButton" />
+
+        #These are taxi notifications
+        <Object js_id="taxiNotification" id="taxiScreen" lighting="false" image_id="taxiNotif" visible="false" />
       </Room>
     </FireBoxRoom>
   </janus-viewer>
