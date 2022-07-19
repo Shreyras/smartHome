@@ -4,13 +4,13 @@
 <head>
   <meta charset="utf-8">
   <title>Event Simulator</title>
-  #below is the bootstrap 5.2
+  <!-- below is the bootstrap 5.2 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-  # this is a 1x3 grid
+  <!-- this is a 1x3 grid for doobell -->
   <div class="container-fluid doorbell">
     <div class="row">
       <div class="col img-col">
@@ -22,6 +22,24 @@
       <div class="col info-col">
         <p>
           Click on this Button to simulate a ringing the doorbell event in the virtual world!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- #this is a 1x3 grid for taxi -->
+  <div class="container-fluid taxi">
+    <div class="row">
+      <div class="col taxiImg-col">
+        <img class="taxiImage" src="taxiImage.jpg" alt="taxi-image" />
+      </div>
+      <div class="col taxiBtn-col">
+        <button class="btn btn-outline-warning btn-lg" id="taxiButton" type="button">CALL TAXI</button>
+      </div>
+      <div class="col taxiInfo-col">
+        <p>
+          Clicking on this button would cause a 'Taxi is arriving' notification in the virtual world!
+          Also, the walking speed of the avatar in the room increases 2 times.
         </p>
       </div>
     </div>
