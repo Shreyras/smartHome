@@ -1,5 +1,12 @@
 window.localStorage.clear();
-let button=document.getElementById('doorbellButton');
-button.addEventListener('click', function(){
+
+let doorbellButton=document.getElementById('doorbellButton');
+let taxiButton=document.getElementById('taxiButton');
+
+doorbellButton.addEventListener('click', function(){
   window.localStorage.setItem('doorbellStatus', '1');
 });
+
+taxiButton.addEventListener('click', function(){
+  window.localStorage.setItem('taxiStatus', '1');
+})
